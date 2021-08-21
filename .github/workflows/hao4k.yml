@@ -5,7 +5,7 @@ on:
     branches: 
       - main
   schedule:
-    - cron: '0 22 * * *'
+    - cron: '0 8,22 * * *'
 
 jobs:
   Hao4K-autoSignIn:
@@ -25,7 +25,7 @@ jobs:
     
     - name: Hao4k auto sign in
       env:
-      username = os.environ["HAO4K_USERNAME"]
-      password = os.environ["HAO4K_PASSWORD"]
+        HAO4K_USERNAME: ${{ secrets.HAO4K_USERNAME }}
+        HAO4K_PASSWORD: ${{ secrets.HAO4K_PASSWORD }}
         SERVERCHAN_SCKEY: ${{ secrets.SERVERCHAN_SCKEY }}
       run: python signin.py
